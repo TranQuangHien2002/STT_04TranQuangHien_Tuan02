@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const gameEvents = new Map([
+            [17, '⚽ Bàn thắng'],
+            [36, '🔁 Thay người'],
+            [47, '⚽ Bàn thắng'],
+            [64, '🔴 Thẻ đỏ'],
+            [64, '🔶 Thẻ vàng'],
+            [69, '🔁 Thay người'],
+            [72, '⚽ Bàn thắng'],
+            [76, '🔶 Thẻ vàng'],
+            [92, '⚽ Bàn thắng']
+        ]);
+
+        //Câu 1
+        const events = [...new Set(gameEvents.values())];
+
+        //Câu 2
+        gameEvents.delete(64);
+
+        //Câu 3
+        const tổngPhút = 90;
+        const sốSựKiện = events.length;
+        const thờiGianTrungBình = tổngPhút / sốSựKiện;
+        console.log(`Có sự kiện xảy ra, trung bình, mỗi ${thờiGianTrungBình.toFixed(2)} phút`);
+
+        //Câu 4
+        for (const [phút, sựKiện] of gameEvents) {
+            const hiệp = phút <= 45 ? 'HIỆP 1' : 'HIỆP 2';
+            console.log(`[${hiệp}] ${phút}: ${sựKiện}`);
+        }
+
+    </script>
+</body>
+
+</html>

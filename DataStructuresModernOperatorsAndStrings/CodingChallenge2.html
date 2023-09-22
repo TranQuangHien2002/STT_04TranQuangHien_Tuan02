@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borussia Dortmund',
+            players: [
+                ['Neuer', 'Pavard', 'Lucas', 'Hernandez', 'Davies', 'Kimmich', 'Goretzka', 'Coman', 'Muller', 'Gnarby', 'Lewandowski'],
+                ['Burki', 'Schulz', 'Hummels', 'Akanji', 'Hakimi', 'Weigl', 'Witsel', 'Hazard', 'Brandt', 'Sancho', 'Gotze']
+            ],
+            score: '4:0',
+            scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+            date: '9 tháng 11 năm 2030',
+            odds: {
+                team1: 1.33,
+                x: 3.25,
+                team2: 6.5
+            }
+        };
+
+        console.log('Câu 1:')
+        for (const [index, player] of game.scored.entries()) {
+            console.log(`Bàn thắng ${index + 1}: ${player}`);
+        }
+
+        console.log('Câu 2:')
+        let totalOdd = 0;
+        for (const odd of Object.values(game.odds)) {
+            totalOdd += odd;
+        }
+        const trungBinhOdd = totalOdd / Object.values(game.odds).length;
+        console.log(`Tỷ lệ cược trung bình: ${trungBinhOdd.toFixed(2)}`);
+
+        console.log('Câu 3:')
+        console.log(`Tỷ lệ cược chiến thắng của ${game.team1}: ${game.odds.team1}`);
+        console.log(`Tỷ lệ cược hòa: ${game.odds.x}`);
+        console.log(`Tỷ lệ cược chiến thắng của ${game.team2}: ${game.odds.team2}`);
+
+        console.log('Câu 4:')
+        const scorers = {};
+        for (const scorer of game.scored) {
+            scorers[scorer] = (scorers[scorer] || 0) + 1;
+        }
+        console.log('Người ghi bàn:', scorers);
+
+    </script>
+</body>
+
+</html>
