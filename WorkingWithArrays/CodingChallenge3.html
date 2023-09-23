@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const calcAverageHumanAge = ages =>
+            ages
+                .map(tuoiCho => (tuoiCho <= 2 ? 2 * tuoiCho : 16 + tuoiCho * 4))
+                .filter(tuoiNguoi => tuoiNguoi >= 18)
+                .reduce((tong, tuoiHienTai, _, arr) => tong + tuoiHienTai / arr.length, 0);
+
+        // Dữ liệu kiểm tra
+        const data1 = [5, 2, 4, 1, 15, 8, 3];
+        const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+        console.log("Tuổi trung bình của con người cho Dữ liệu 1:", calcAverageHumanAge(data1));
+        console.log("Tuổi trung bình của con người cho Dữ liệu 2:", calcAverageHumanAge(data2));
+
+    </script>
+</body>
+
+</html>
