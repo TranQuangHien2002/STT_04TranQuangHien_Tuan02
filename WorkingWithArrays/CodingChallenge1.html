@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function checkDogs(dogsJulia, dogsKate) {
+            // Sao chép hợp lệ của mảng của Julia để loại bỏ tuổi của mèo
+            const juliaCopy = dogsJulia.slice();
+            juliaCopy.splice(0, 1); // Loại bỏ phần tử đầu tiên (tuổi mèo)
+            juliaCopy.splice(-2);   // Loại bỏ hai phần tử cuối cùng (tuổi của mèo)
+
+            // Tạo một mảng với cả dữ liệu đã sửa của Julia và dữ liệu của Kate
+            const allDogs = [...juliaCopy, ...dogsKate];
+
+            // Ghi log xem mỗi con chó có phải là người lớn hay là chó con không
+            allDogs.forEach((age, index) => {
+                const classification = age >= 3 ? "người lớn" : "chó con";
+                console.log(`Chó số ${index + 1} là ${classification}, và nó ${age} tuổi`);
+            });
+        }
+
+        // Dữ liệu kiểm tra
+        const juliaData1 = [3, 5, 2, 12, 7];
+        const kateData1 = [4, 1, 15, 8, 3];
+        const juliaData2 = [9, 16, 6, 8, 3];
+        const kateData2 = [10, 5, 6, 1, 4];
+
+        console.log("Dữ liệu 1:");
+        checkDogs(juliaData1, kateData1);
+
+        console.log("\nDữ liệu 2:");
+        checkDogs(juliaData2, kateData2);
+
+    </script>
+</body>
+
+</html>
