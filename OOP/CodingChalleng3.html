@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Lớp cha 'Car'
+        class Car {
+            constructor(make, speed) {
+                this.make = make;
+                this.speed = speed;
+            }
+
+            // Phương thức để tăng tốc độ của ô tô lên 10 km/h
+            accelerate() {
+                this.speed += 10;
+                console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+            }
+
+            // Phương thức để phanh và giảm tốc độ của ô tô đi 5 km/h
+            brake() {
+                this.speed -= 5;
+                console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+            }
+        }
+
+        // Lớp con 'EV' (Ô tô Điện)
+        class EV extends Car {
+            constructor(make, speed, charge) {
+                super(make, speed);
+                this.charge = charge;
+            }
+
+            // Phương thức để sạc pin đến một mức cụ thể
+            chargeBattery(chargeTo) {
+                this.charge = chargeTo;
+                console.log(`Pin của ${this.make} hiện đã sạc đến ${this.charge}%`);
+            }
+
+            // Ghi đè phương thức accelerate để tăng tốc độ lên 20 km/h và giảm pin đi 1%
+            accelerate() {
+                this.speed += 20;
+                this.charge -= 1;
+                console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h, với pin còn lại ${this.charge}%`);
+            }
+        }
+
+        // Tạo một đối tượng ô tô điện
+        const ev1 = new EV('Tesla', 120, 23);
+
+        // Kiểm tra phương thức accelerate
+        ev1.accelerate();
+
+        // Kiểm tra phương thức brake
+        ev1.brake();
+
+        // Kiểm tra phương thức chargeBattery
+        ev1.chargeBattery(90);
+
+    </script>
+</body>
+
+</html>
