@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class CarCl {
+            constructor(make, speed) {
+                this.make = make; // Thuộc tính 'make' lưu hãng sản xuất của ô tô
+                this.speed = speed; // Thuộc tính 'speed' lưu tốc độ hiện tại của ô tô (đơn vị: km/h)
+            }
+
+            // Phương thức getter để truy xuất tốc độ ở mi/h
+            get speedUS() {
+                return this.speed / 1.6;
+            }
+
+            // Phương thức setter để đặt tốc độ ở mi/h và chuyển đổi nó sang km/h
+            set speedUS(speedInMilesPerHour) {
+                this.speed = speedInMilesPerHour * 1.6;
+            }
+
+            // Phương thức để tăng tốc độ của ô tô lên 10 km/h
+            accelerate() {
+                this.speed += 10;
+                console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+            }
+
+            // Phương thức để phanh và giảm tốc độ của ô tô đi 5 km/h
+            brake() {
+                this.speed -= 5;
+                console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+            }
+        }
+
+        // Tạo một đối tượng ô tô mới
+        const car1 = new CarCl('Ford', 120); // Ford đang di chuyển ở tốc độ 120 km/h
+
+        // Kiểm tra các phương thức 'accelerate' và 'brake'
+        car1.accelerate(); // Ford đang di chuyển ở tốc độ 130 km/h
+        car1.brake();      // Ford đang di chuyển ở tốc độ 125 km/h
+
+        // Kiểm tra phương thức getter và setter 'speedUS'
+        console.log(`Tốc độ của ${car1.make} ở đơn vị mi/h: ${car1.speedUS}`);
+        car1.speedUS = 75; // Đặt tốc độ thành 75 mi/h (được chuyển đổi thành 120 km/h)
+        console.log(`Tốc độ của ${car1.make} ở đơn vị mi/h: ${car1.speedUS}`);
+
+    </script>
+</body>
+
+</html>
