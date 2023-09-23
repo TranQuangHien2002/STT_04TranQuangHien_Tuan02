@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Hàm tạo 'Car' để tạo đối tượng ô tô
+        function Car(make, speed) {
+            this.make = make; // Thuộc tính 'make' lưu hãng sản xuất của ô tô
+            this.speed = speed; // Thuộc tính 'speed' lưu tốc độ hiện tại của ô tô (đơn vị: km/h)
+        }
+
+        // Phương thức để tăng tốc độ của ô tô lên 10 km/h
+        Car.prototype.accelerate = function () {
+            this.speed += 10;
+            console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+        };
+
+        // Phương thức để phanh và giảm tốc độ của ô tô đi 5 km/h
+        Car.prototype.brake = function () {
+            this.speed -= 5;
+            console.log(`${this.make} đang di chuyển ở tốc độ ${this.speed} km/h`);
+        };
+
+        // Tạo hai đối tượng 'Car'
+        const car1 = new Car('BMW', 120); // Ô tô BMW đang di chuyển ở tốc độ 120 km/h
+        const car2 = new Car('Mercedes', 95); // Ô tô Mercedes đang di chuyển ở tốc độ 95 km/h
+
+        // Kiểm tra các phương thức 'accelerate' và 'brake'
+        car1.accelerate(); // BMW đang di chuyển ở tốc độ 130 km/h
+        car1.accelerate(); // BMW đang di chuyển ở tốc độ 140 km/h
+        car1.brake();      // BMW đang di chuyển ở tốc độ 135 km/h
+
+        car2.accelerate(); // Mercedes đang di chuyển ở tốc độ 105 km/h
+        car2.brake();      // Mercedes đang di chuyển ở tốc độ 100 km/h
+        car2.brake();      // Mercedes đang di chuyển ở tốc độ 95 km/h
+
+    </script>
+</body>
+
+</html>
